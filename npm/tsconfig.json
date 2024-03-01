@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "ESNext",
+    "strict": true,
+    "esModuleInterop": true,
+    "outDir": "./dist",
+    "declaration": true,
+    "removeComments": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true
+  },
+  "include": ["src/**/*.ts", "package.json"],
+  "exclude": ["node_modules"]
+}

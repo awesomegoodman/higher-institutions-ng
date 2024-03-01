@@ -1,0 +1,7 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.autopep8]
+max_line_length = 150
+ignore = "E402"

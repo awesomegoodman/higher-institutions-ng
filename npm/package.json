@@ -1,0 +1,52 @@
+{
+  "name": "higher-institutions-ng",
+  "version": "0.0.1",
+  "description": "Information about Nigerian higher institutions.",
+  "main": "src/higher-institutions-ng/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc",
+    "start": "npm run build && node dist/src/higher-institutions-ng/index.js",
+    "publish-local": "local-package-publisher -p",
+    "publish-dry-run": "npm publish --dry-run && npm pack"
+  },
+  "keywords": [
+    "Nigerian School List",
+    "Nigerian Schools",
+    "Nigerian Colleges",
+    "Nigerian Universities",
+    "Nigerian Polytechnics",
+    "Nigerian Higher Institutions",
+    "State",
+    "Federal",
+    "Nigeria"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/awesomegoodman/higher-institutions-ng/tree/main/npm"
+  },
+  "author": "Awesome Goodman",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.22.9",
+    "@babel/core": "^7.24.0",
+    "@babel/preset-env": "^7.24.0",
+    "@babel/preset-typescript": "^7.23.3",
+    "@typescript-eslint/eslint-plugin": "^7.1.0",
+    "@typescript-eslint/parser": "^7.1.0",
+    "eslint": "^8.57.0",
+    "husky": "^9.0.11",
+    "jest": "^29.6.1",
+    "json-loader": "^0.5.7",
+    "local-package-publisher": "^1.0.5",
+    "prettier": "^3.2.5",
+    "typescript": "^5.3.3"
+  },
+  "initConfig": {
+    "name": "my-bank-app",
+    "version": "1.0.0",
+    "description": "Information about Nigerian higher institutions.",
+    "license": "MIT"
+  }
+}
