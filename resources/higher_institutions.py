@@ -2,15 +2,16 @@ import csv
 import json
 import os
 import base64
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 
 # Get the current working directory
-current_dir = os.getcwd()
+current_dir = os.path.dirname(os.path.abspath(__file__))
 
-# Set the base directory
-BASE_DIR = os.path.join(current_dir)
+# Set the base directory by getting the parent directory of the current directory
+BASE_DIR = os.path.dirname(current_dir)
 NARR_DIR = os.path.join(BASE_DIR, 'resources', 'NARR')
-JSON_OUTPUT_PATH = 'Nigerian Higher Institutions.json'
+JSON_FILE_NAME = 'Nigerian Higher Institutions.json'
+PACKAGE_NAME = 'higher-institutions-ng'
 
 # Constants for keys
 NAME_KEY = "Name of Institution"
@@ -50,7 +51,7 @@ def get_image_path(row: Dict[str, Any]) -> str:
     return image_path
 
 
-def get_image_data(row: Dict[str, Any]) -> str:
+def get_image_data(row: Dict[str, Any]) -> Optional[str]:
     """
     Convert the image file into a base64-encoded string.
 
@@ -66,7 +67,7 @@ def get_image_data(row: Dict[str, Any]) -> str:
             image_data = base64.b64encode(image_file.read()).decode('utf-8')
     except FileNotFoundError:
         print(f"{image_path} not found")
-        return
+        return None
     return image_data
 
 
@@ -118,16 +119,17 @@ if __name__ == "__main__":
     csv_file_path = os.path.join(NARR_DIR, 'NARR institution.csv')
 
     # Use the predefined JSON output path
-    json_output_path = os.path.join(BASE_DIR, 'resources', JSON_OUTPUT_PATH)
-    npm_output_path = os.path.join(BASE_DIR, 'npm', 'src', 'higher-institutions-ng', 'Nigerian Higher Institutions.json')
-    pypi_output_path = os.path.join(BASE_DIR, 'pypi', 'src', 'higher-institutions-ng', 'Nigerian Higher Institutions.json')
+    json_output_path = os.path.join(BASE_DIR, 'resources', JSON_FILE_NAME)
+    npm_output_path = os.path.join(BASE_DIR, 'npm', 'src', PACKAGE_NAME, 'Nigerian Higher Institutions.json')
+    pypi_output_path = os.path.join(BASE_DIR, 'pypi', 'src', PACKAGE_NAME.replace('-', '_'), JSON_FILE_NAME) # Convert dashes to underscores in the package name
     
     # Read CSV data
     csv_data = read_csv(csv_file_path)
 
     # Write CSV data to a JSON file
     write_json(csv_data, json_output_path)
+    print(f"\nConversion completed. JSON file saved at: {json_output_path}\n")
     write_json(csv_data, npm_output_path)
+    print(f"Conversion completed. NPM JSON file saved at: {npm_output_path}\n")
     write_json(csv_data, pypi_output_path)
-
-    print(f"Conversion completed. JSON file saved at: {json_output_path}")
+    print(f"Conversion completed. PyPi JSON file saved at: {pypi_output_path}\n")

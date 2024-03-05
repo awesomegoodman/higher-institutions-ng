@@ -4,7 +4,7 @@ from typing import List, Dict, Any, Optional, TypedDict, Literal
 
 
 InstitutionType = Literal['University', 'College', 'Polytechnic']
-class Institution(TypedDict):
+class Institution(TypedDict, total=False):
     nameOfInstitution: str
     type: InstitutionType
     acronym: str
@@ -12,7 +12,7 @@ class Institution(TypedDict):
     url: str
     year: str
     imagePath: str
-    image: str
+    image: Optional[str]
 
 StateType = Literal[
     "Abia", "Adamawa", "Akwa Ibom", "Anambra", "Bauchi", "Bayelsa", "Benue", "Borno", 
@@ -44,7 +44,7 @@ def read_json_file(json_file_path: str) -> list:
 
 institutions = read_json_file(JSON_PATH)
 
-def _exclude_image(institution: Dict[str, Any]) -> Dict[str, Any]:
+def _exclude_image(institution: Institution) -> Institution:
     """
     Exclude the image data from the institution if requested.
 
@@ -123,7 +123,7 @@ def get_institutions_by_state(state: StateType, include_image: bool = True) -> L
     Returns:
         List[Institution]: Array of objects representing the institution data within the state.
     """
-    state_institutions = []
+    state_institutions: List[Institution] = []
     for institution in institutions:
         if state.lower() in institution['nameOfInstitution'].lower():
             if not include_image:
@@ -148,7 +148,7 @@ def get_institutions_by_type(institution_type: Institution, include_image: bool 
     if institution_type not in valid_types:
         raise ValueError("Invalid institution type. Valid types are 'University', 'College', and 'Polytechnic'.")
 
-    type_institutions = []
+    type_institutions: List[Institution] = []
     for institution in institutions:
         if institution['type'] == institution_type:
             if not include_image:

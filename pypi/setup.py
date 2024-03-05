@@ -10,7 +10,7 @@ with io.open('README.md', 'r', encoding='utf-8') as f:
 
 setup(
     name='higher_institutions_ng',
-    version='0.0.1',
+    version='0.0.3',
     packages=find_packages(where='src', exclude=['tests']),
     package_dir={'': 'src'},
     package_data={

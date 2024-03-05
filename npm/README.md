@@ -1,4 +1,4 @@
-# Higher Institutions NG
+# Nigerian Higher Institutions (higher-institutions-ng)
 
 Higher Institutions NG is a JavaScript library providing information about Nigerian higher institutions, including universities, colleges, and polytechnics.
 

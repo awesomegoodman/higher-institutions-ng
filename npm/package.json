@@ -1,13 +1,14 @@
 {
   "name": "higher-institutions-ng",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Information about Nigerian higher institutions.",
   "main": "src/higher-institutions-ng/index.js",
   "type": "module",
   "scripts": {
     "test": "jest",
     "build": "tsc",
-    "start": "npm run build && node dist/src/higher-institutions-ng/index.js",
+    "copy-files": "copy README.md dist",
+    "start": "npm run build && npm run copy-files && node dist/src/higher-institutions-ng/index.js",
     "publish-local": "local-package-publisher -p",
     "publish-dry-run": "npm publish --dry-run && npm pack"
   },

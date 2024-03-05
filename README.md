@@ -1,4 +1,8 @@
-# Higher Institutions NG
+# Nigerian Higher Institutions (higher-institutions-ng)
+
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![NPM](https://img.shields.io/npm/v/higher-institutions-ng.svg)](https://www.npmjs.com/package/higher-institutions-ng)
+[![PyPI](https://badge.fury.io/py/higher-institutions-ng.svg)](https://pypi.org/project/higher-institutions-ng)
 
 Higher Institutions NG is a project aimed at providing comprehensive information about Nigerian higher institutions, including universities, colleges, and polytechnics. The project consists of several components, including resources, npm package, and PyPI package.
 
@@ -11,7 +15,7 @@ The `resources` directory contains all the essential data and scripts necessary 
 
 ## npm Package
 
-The `npm` directory contains the source code and resources for the npm package `higher-institutions-ng`, which provides access to the information about Nigerian higher institutions for JavaScript projects. It includes:
+The `npm` directory contains the source code and resources for the npm package `higher-institutions-ng`, which provides access to information about Nigerian higher institutions for JavaScript projects. It includes:
 
 - `src`: This directory contains the TypeScript source code for the npm package.
 - `Nigerian Higher Institutions.json`: This JSON file contains the processed data about Nigerian higher institutions, ready for use in JavaScript projects.
@@ -21,7 +25,7 @@ The npm package is published and available for installation via the npm package 
 
 ## PyPI Package
 
-The `pypi` directory contains the source code and resources for the PyPI package `higher-institutions-ng`, which provides access to the information about Nigerian higher institutions for Python projects. It includes:
+The `pypi` directory contains the source code and resources for the PyPI package `higher-institutions-ng`, which provides access to information about Nigerian higher institutions for Python projects. It includes:
 
 - `src`: This directory contains the Python source code for the PyPI package.
 - `Nigerian Higher Institutions.json`: This JSON file contains the processed data about Nigerian higher institutions, ready for use in Python projects.
